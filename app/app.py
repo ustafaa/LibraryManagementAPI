@@ -1,7 +1,7 @@
 from flask import Flask, redirect
 from flask_swagger_ui import get_swaggerui_blueprint
 from .routes import api
-import os 
+
 
 app = Flask(__name__)
 
@@ -24,8 +24,14 @@ def index():
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 app.register_blueprint(api, url_prefix='/api')
 
+def hello():
+    return {"message": "Sample Library API"}
+# aa
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+    
+    
+
     
 
     
