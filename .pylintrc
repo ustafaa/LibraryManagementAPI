@@ -1,0 +1,11 @@
+[MASTER]
+init-hook='import sys; sys.path.append(".")'
+disable=C0111,  # missing docstring
+        C0103,  # invalid-name
+        R0903,  # too-few-public-methods
+        W0621,  # redefined-outer-name
+        W0511,  # fixme
+        W0613,  # unused-argument
+        R0801,
+        C0303   
+

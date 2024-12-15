@@ -1,0 +1,97 @@
+# static/swagger.yaml
+openapi: 3.0.0
+info:
+  title: Library Management API
+  description: API for managing books in a library
+  version: 1.0.0
+paths:
+  /api/books:
+    post:
+      summary: Add a new book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - author
+                - published_year
+                - isbn
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                published_year:
+                  type: integer
+                isbn:
+                  type: string
+                genre:
+                  type: string
+      responses:
+        "201":
+          description: Book created successfully
+        "400":
+          description: Invalid input
+
+    get:
+      summary: List all books
+      parameters:
+        - in: query
+          name: author
+          schema:
+            type: string
+        - in: query
+          name: published_year
+          schema:
+            type: string
+        - in: query
+          name: genre
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of books
+
+  /api/books/{isbn}:
+    put:
+      summary: Update book details
+      parameters:
+        - in: path
+          name: isbn
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                published_year:
+                  type: integer
+                genre:
+                  type: string
+      responses:
+        "200":
+          description: Book updated successfully
+        "404":
+          description: Book not found
+
+    delete:
+      summary: Delete a book
+      parameters:
+        - in: path
+          name: isbn
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Book deleted successfully

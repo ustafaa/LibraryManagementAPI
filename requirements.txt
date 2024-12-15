@@ -1,2 +1,7 @@
 flask
-gunicorn 
+gunicorn
+marshmallow
+flask_swagger_ui 
+pyyaml
+pytest
+pylint
