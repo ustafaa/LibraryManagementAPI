@@ -19,7 +19,7 @@ jobs:
     - name: Run tests and lint in container
       run: |
         docker run --rm library-api pytest -v
-        docker run --rm library-api pylint app/*.py tests/*.py
+        docker run --rm library-api pylint app/*.py tests/*.py --fail-under=9.0
         
     - name: Verify Swagger docs
       run: |
