@@ -42,6 +42,7 @@ jobs:
           services:
             web:
               image: ${{ secrets.DOCKERHUB_USERNAME }}/library-management-api:latest
+              network_mode: "host"
               ports:
                 - "5000:5000"
               restart: always
