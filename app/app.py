@@ -9,17 +9,16 @@ app = Flask(__name__)
 SWAGGER_URL = '/api-docs'
 API_URL = '/static/swagger.yaml'
 
-
-
+#swaggerui blueprint 
 swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
     config={'app_name': "Library Management API"}
 )
+
 @app.route('/')
 def index():
     return redirect('/api-docs')
-
 
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 app.register_blueprint(api, url_prefix='/api')
