@@ -1,11 +1,30 @@
+# .pylintrc
 [MASTER]
 init-hook='import sys; sys.path.append(".")'
-disable=C0111,  # missing docstring
-        C0103,  # invalid-name
-        R0903,  # too-few-public-methods
-        W0621,  # redefined-outer-name
-        W0511,  # fixme
-        W0613,  # unused-argument
-        R0801,
-        C0303   
 
+[MESSAGES CONTROL]
+disable=C0111,  # missing docstring
+        W0718,  # broad-exception-caught
+        W1514,  # unspecified-encoding
+        R1714   # consider-using-in
+
+[FORMAT]
+max-line-length=100
+
+[BASIC]
+good-names=i,j,k,ex,Run,_,id,db,app,f
+
+[LOGGING]
+logging-format-style=new
+
+[MISCELLANEOUS]
+# Set minimum score to 9.0
+notes=FIXME,XXX,TODO
+min-similarity-lines=4
+fail-under=9.0
+
+[SIMILARITIES]
+min-similarity-lines=4
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
