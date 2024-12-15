@@ -35,7 +35,7 @@ docker run -d -p 5000:5000 library-api
 ```
 
 ## API Documentation
-- Local: http://localhost:4000/api-docs
+- Local: http://localhost:5000/api-docs
 - Production: http://ec2-52-59-226-250.eu-central-1.compute.amazonaws.com/api-docs/
 
 ## Development
