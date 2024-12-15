@@ -1,0 +1,46 @@
+{
+  "books": [
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "published_year": 1925,
+      "isbn": "978-0743273565",
+      "genre": "Literary Fiction"
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "published_year": 1949,
+      "isbn": "978-0451524935",
+      "genre": "Dystopian Fiction"
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "published_year": 1813,
+      "isbn": "978-0141439518",
+      "genre": "Romance"
+    },
+    {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "published_year": 1937,
+      "isbn": "978-0547928227",
+      "genre": "Fantasy"
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "published_year": 1960,
+      "isbn": "978-0446310789",
+      "genre": "Literary Fiction"
+    },
+    {
+      "title": "string",
+      "author": "string",
+      "published_year": 0,
+      "isbn": "string",
+      "genre": "string"
+    }
+  ]
+}
