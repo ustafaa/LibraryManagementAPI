@@ -1,0 +1,28 @@
+name: Backend Build
+
+on:
+  push:
+    branches: [ backend ]
+  pull_request:
+    branches: [ backend ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build Docker image
+      run: docker build -t library-api .
+      
+    - name: Run tests and lint in container
+      run: |
+        docker run --rm library-api pytest -v
+        docker run --rm library-api pylint app/*.py tests/*.py --fail-under=9.0
+        
+    - name: Verify Swagger docs
+      run: |
+        docker run -d -p 5000:5000 --name api-test library-api
+        sleep 5
+        curl http://localhost:5000/
