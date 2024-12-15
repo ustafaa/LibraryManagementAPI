@@ -1,0 +1,30 @@
+name: Pre-merge Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run tests
+      run: pytest -v
+    - name: Run linting
+      run: pylint app/*.py tests/*.py --fail-under=9.0
+    - name: Build Docker image
+      run: docker build -t library-api .
+    - name: Verify API endpoints
+      run: |
+        docker run -d -p 5000:5000 library-api
+        sleep 5
+        curl http://localhost:5000/api-docs
